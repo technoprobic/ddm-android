@@ -1,6 +1,6 @@
 # Reference Android client for sensor data for a I3 Decentralized Data Marketplace
 
-This is a reference Android client implementation for a DDM instance which requires Android Oreo or later operating system.
+This is a reference Android client implementation (requires Android Oreo or later operating system) for a Decentralized Data Marketplace instance.
 
 The Intelligent IoT Integrator (I3) has created code ( https://github.com/ANRGUSC/DDM ) and deployed an instance for Decentralized Data Marketplaces (DDM) in order to encourage the sharing of data from IoT devices. It is version 1.0, DDM is still under development. It uses blockchain and other distributed ledger technologies in order to allow a seller of IoT data and a buyer to effect an exchange of IoT data without a central authority involved in the exchange. Sellers post descriptions of data products to a DDM instance. Buyers can search and browse a DDM to find data of interest. The buyer can transfer payment using the IOTA cryptocurrency and then connect to a server hosted by the seller to retrieve the data.
 
