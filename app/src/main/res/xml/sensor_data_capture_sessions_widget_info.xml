@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialKeyguardLayout="@layout/sensor_data_capture_sessions_widget"
+    android:initialLayout="@layout/sensor_data_capture_sessions_widget"
+    android:minWidth="165dp"
+    android:minHeight="100dp"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="4320000"
+    android:widgetCategory="home_screen">
+</appwidget-provider>

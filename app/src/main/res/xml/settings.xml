@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/settings_load_test_addresses_key"
+        android:summary="@string/settings_load_test_addresses_summary"
+        android:title="@string/settings_load_test_addresses"/>
+
+    <PreferenceCategory android:title="@string/settings_ddm_category_label">
+
+        <EditTextPreference
+            android:title="@string/settings_ddm_contract_address_label"
+            android:key="@string/settings_ddm_contract_address_key"
+            android:editable="true"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_wallet_category_label">
+
+        <EditTextPreference
+            android:title="@string/settings_ethereum_private_key"
+            android:key="@string/settings_ethereum_private_key_key"
+            android:editable="true"
+            />
+
+        <EditTextPreference
+            android:title="@string/settings_iota_seed"
+            android:key="@string/settings_iota_seed_key"
+            android:editable="true"
+            />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

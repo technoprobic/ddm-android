@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#09C"
+    android:padding="@dimen/widget_margin">
+
+    <TextView android:layout_width="match_parent"
+        android:id="@+id/widgetTitleLabel"
+        android:text="@string/select_sensor_data_capture_sessions"
+        android:textSize="18sp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"/>
+    <FrameLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/widgetListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="1dp"
+            android:divider="#eeeeee"
+            tools:listitem="@layout/sensor_data_capture_session_item" />
+        <TextView
+            android:id="@+id/widgetEmptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cardview_dark_background"
+            android:text="@string/empty"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </FrameLayout>
+
+</LinearLayout>
