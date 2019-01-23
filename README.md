@@ -21,7 +21,7 @@ A [video demo of the app](https://www.youtube.com/watch?v=yeOcmwrlpEE&feature=yo
 * Android device (>=SDK 26 aka Oreo)
 
 ## Instructions
-Clone the repository
-Deploy to an Android device
-Enter DDM contract address, Ropsten Ethereum private key, and IOTA seed 
+* Clone the repository
+* Deploy to an Android device
+* Enter DDM contract address, Ropsten Ethereum private key, and IOTA seed 
 
