@@ -18,7 +18,6 @@ A [video demo of the app](https://www.youtube.com/watch?v=yeOcmwrlpEE&feature=yo
 * A funded Ropsten ethereum private key
 * An IOTA seed
 * An Android device (>=SDK 26 aka Oreo) with sensors
-* Android device (>=SDK 26 aka Oreo)
 
 ## Instructions
 * Clone the repository
