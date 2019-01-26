@@ -5,9 +5,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.technoprobic.ddm.ddm"
-        //minSdkVersion 15
-        //minSdkVersion 19 // for sensor registerlistener
-        //minSdkVersion 26 // for ipfs library
+
         minSdkVersion 26 // temp? for iota library
         targetSdkVersion 27 // for ipfs library
         versionCode 1

@@ -389,6 +389,8 @@ public class SensorDataCaptureSessionDetailFragment extends Fragment implements 
                 e.printStackTrace();
                 Log.d(TAG, "error in post product: " + e.getMessage());
                 userMessage = "Error: " + e.getMessage();
+            } finally {
+                // web3j.shutdown(); //command unavailable
             }
 
             return userMessage;
