@@ -1,4 +1,4 @@
-# Reference Android client for sensor data for a I3 Decentralized Data Marketplace
+# Reference Android client for sensor data for an I3 Decentralized Data Marketplace
 
 This is a reference Android client implementation (requires Android Oreo or later operating system) for a Decentralized Data Marketplace instance.
 
