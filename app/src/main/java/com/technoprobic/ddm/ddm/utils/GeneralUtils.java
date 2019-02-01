@@ -1,9 +1,12 @@
 package com.technoprobic.ddm.ddm.utils;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -16,6 +19,7 @@ import java.util.Date;
 public class GeneralUtils {
 
     public static final String userPreferenceFile = "user_preference_file";
+    public static final String BUYER_LISTENER_SERVER_CHANNEL_ID = "buyer_listener_server_channel_id";
 
     public static String getFormattedDateFromMillis(long timeInMillis) {
         Date date = new Date(timeInMillis);
@@ -55,7 +59,5 @@ public class GeneralUtils {
 
         return iotaAddressAvailable;
     }
-
-
 
 }
