@@ -1,4 +1,4 @@
-package com.technoprobic.ddm.ddm;
+package com.technoprobic.ddm.ddm.ui;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -6,14 +6,12 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.widget.RemoteViews;
 
+import com.technoprobic.ddm.ddm.R;
 import com.technoprobic.ddm.ddm.model.SensorDataCaptureSession;
-import com.technoprobic.ddm.ddm.ui.SensorDataCaptureSessionDetailActivity;
-import com.technoprobic.ddm.ddm.ui.SensorDataCaptureSessionDetailFragment;
 
-// todo - remove after capstone
+// todo - remove
 public class SensorDataCaptureSessionsWidget extends AppWidgetProvider {
 
     public static final String ACTION_DETAIL = "SENSOR_DATA_CAPTURE_SESSION_DETAIL";

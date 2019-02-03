@@ -27,7 +27,7 @@
             android:name=".ui.SensorDataCaptureSessionDetailActivity"
             android:parentActivityName=".ui.MainActivity" />
 
-        <receiver android:name=".SensorDataCaptureSessionsWidget">
+        <receiver android:name=".ui.SensorDataCaptureSessionsWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -41,7 +41,7 @@
             android:name=".utils.BuyerListenerServerService"
             android:exported="false" />
         <service
-            android:name=".ListViewWidgetRemoteViewsService"
+            android:name=".ui.ListViewWidgetRemoteViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <activity android:name=".ui.SettingsActivity"

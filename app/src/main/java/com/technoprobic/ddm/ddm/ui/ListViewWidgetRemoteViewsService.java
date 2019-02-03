@@ -1,4 +1,4 @@
-package com.technoprobic.ddm.ddm;
+package com.technoprobic.ddm.ddm.ui;
 
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
@@ -7,9 +7,9 @@ import android.widget.AdapterView;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+import com.technoprobic.ddm.ddm.R;
 import com.technoprobic.ddm.ddm.model.AppDatabase;
 import com.technoprobic.ddm.ddm.model.SensorDataCaptureSession;
-import com.technoprobic.ddm.ddm.ui.SensorDataCaptureSessionDetailFragment;
 import com.technoprobic.ddm.ddm.utils.AppExecutors;
 
 import java.util.ArrayList;

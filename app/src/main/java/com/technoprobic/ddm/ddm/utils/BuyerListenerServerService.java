@@ -17,7 +17,7 @@ import com.technoprobic.ddm.ddm.ui.MainActivity;
 
 import static com.technoprobic.ddm.ddm.utils.GeneralUtils.BUYER_LISTENER_SERVER_CHANNEL_ID;
 
-// todo - refactor from intentservice
+
 public class BuyerListenerServerService extends IntentService {
 
     private static final String TAG = BuyerListenerServerService.class.getSimpleName();

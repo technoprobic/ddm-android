@@ -1,6 +1,7 @@
 package com.technoprobic.ddm.ddm.ui;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -10,8 +11,12 @@ import android.preference.PreferenceManager;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -28,7 +33,9 @@ import com.technoprobic.ddm.ddm.model.AppDatabase;
 import com.technoprobic.ddm.ddm.model.InfuraIpfsResponse;
 import com.technoprobic.ddm.ddm.model.MarketplaceRecord;
 import com.technoprobic.ddm.ddm.model.SensorDataCaptureSession;
+import com.technoprobic.ddm.ddm.utils.AppExecutors;
 import com.technoprobic.ddm.ddm.utils.BuyerListenerServer;
+import com.technoprobic.ddm.ddm.utils.BuyerListenerServerService;
 import com.technoprobic.ddm.ddm.utils.GeneralUtils;
 import com.technoprobic.ddm.ddm.utils.RetrofitUploadJsonToIpfs;
 
@@ -124,6 +131,8 @@ public class SensorDataCaptureSessionDetailFragment extends Fragment implements 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sensor_data_capture_session_detail, container, false);
+
+        setHasOptionsMenu(true);
 
         tvUserSessionDescription = rootView.findViewById(R.id.tv_detail_userSessionDescription);
         tvSensorName = rootView.findViewById(R.id.tv_detail_sessionSensorName);
@@ -650,6 +659,52 @@ public class SensorDataCaptureSessionDetailFragment extends Fragment implements 
 
         return "";
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        inflater.inflate(R.menu.menu_session_detail, menu);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        switch ( id) {
+
+            case R.id.action_delete_session: {
+                new AlertDialog.Builder(mContext)
+                        .setTitle(mContext.getResources().getString(R.string.session_delete_confirmation_title) )
+                        .setMessage(mContext.getResources().getString(R.string.session_delete_confirmation_message)  )
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                mDb = AppDatabase.getInstance(mContext);
+                                AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        mDb.sensorDataDao().deleteSensorDataBySessionId(sensorDataCaptureSession.getSessionId());
+                                        mDb.sensorDataCaptureSessionDao().deleteSensorDataCaptureSessionBySessionId(sensorDataCaptureSession.getSessionId());
+                                    }
+                                });
+
+                                Toast.makeText(mContext, mContext.getResources().getString(R.string.session_deleted_message), Toast.LENGTH_LONG).show();
+                                getActivity().finish();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null).show();
+                return true;
+            }
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
 
     @Override

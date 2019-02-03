@@ -28,7 +28,6 @@ public interface SensorDataDao {
     @Delete
     void deleteSensorData(SensorData sensorData);
 
-    // todo delete sensordata for a sessionId
     @Query("DELETE FROM SensorData WHERE sessionId = :sessionId")
     int deleteSensorDataBySessionId(long sessionId);
 
