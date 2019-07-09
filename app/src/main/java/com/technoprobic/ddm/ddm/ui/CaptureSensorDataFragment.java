@@ -1,7 +1,10 @@
 package com.technoprobic.ddm.ddm.ui;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
@@ -327,6 +330,9 @@ public class CaptureSensorDataFragment extends Fragment implements SensorEventLi
         setSensorDataDisplayUi();
         enableKeepScreenOn();
 
+        IntentFilter lowStorageFilter = new IntentFilter(Intent.ACTION_DEVICE_STORAGE_LOW); // deprecated in API 26
+        mContext.registerReceiver(lowStorageReceiver, lowStorageFilter);
+
     }
 
     private void stopSensorDataCapture() {
@@ -355,6 +361,8 @@ public class CaptureSensorDataFragment extends Fragment implements SensorEventLi
         });
 
         clearSensorOutputTextViews();
+
+        mContext.unregisterReceiver(lowStorageReceiver);
     }
 
     // timer for control of sensor readings
@@ -587,7 +595,6 @@ public class CaptureSensorDataFragment extends Fragment implements SensorEventLi
 
     @Override
     public void onPause() {
-
         // if app is no longer in foreground, close capture session
         if (inCaptureMode) {
             stopSensorDataCapture();
@@ -596,11 +603,30 @@ public class CaptureSensorDataFragment extends Fragment implements SensorEventLi
         super.onPause();
     }
 
+    // on low on storage space, close capture session
+    private BroadcastReceiver lowStorageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (inCaptureMode) {
+                Toast.makeText(mContext, getResources().getString(R.string.low_storage_error), Toast.LENGTH_LONG).show();
+                Log.d(TAG, "low storage, sensor data capture session closed");
+                stopSensorDataCapture();
+            }
+        }
+    };
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
         mContext = context;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        mContext.unregisterReceiver(lowStorageReceiver);
     }
 
     @Override
@@ -674,6 +700,5 @@ public class CaptureSensorDataFragment extends Fragment implements SensorEventLi
             return !TextUtils.isEmpty(locationProviders);
         }
     }
-
 
 }

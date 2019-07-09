@@ -114,7 +114,7 @@ public class BuyerListenerServer {
 
             //final String IOTA_NODE_ADDRESS = "node02.iotatoken.nl";
             //final String IOTA_NODE_PORT = "14265";
-            final String IOTA_NODE_ADDRESS = "pow1.iota.community"; // replace with your own node,
+            final String IOTA_NODE_ADDRESS = "pow1.iota.community"; // todo replace with your own node,
             final String IOTA_NODE_PORT = "443"; // possible candidates with POW and SSL at iota.dance
             IotaAPI iotaAPI = new IotaAPI.Builder()
                     //.protocol("http")

@@ -375,6 +375,7 @@ public class SensorDataCaptureSessionDetailFragment extends Fragment implements 
             }
 
             DDMV2Contract ddmv2Contract = DDMV2Contract.load(ddmContractAddressRopsten, web3j, credentials, gasPrice, gasLimit);
+            //kddmv2Contract.isValid();
 
             try {
 
